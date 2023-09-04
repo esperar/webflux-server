@@ -1,4 +1,4 @@
-package esperer.webfluxserver.global.r2dbc
+package esperer.webfluxserver.global.converter
 
 import org.springframework.core.convert.converter.Converter
 import org.springframework.data.convert.WritingConverter
