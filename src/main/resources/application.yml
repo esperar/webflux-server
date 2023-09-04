@@ -1,0 +1,13 @@
+spring:
+  r2dbc:
+    url: ${DB_URL:r2dbc:mysql://localhost:3306/my_db?useUnicode=true&characterEncoding=utf8&useSSL=false&serverTimezone=Asia/Seoul}
+    username: ${DB_USERNAME:root}
+    password: ${DB_PASSWORD:Esperer123!}
+    pool:
+      max-size: 100
+      validation-query: SELECT 1
+
+jwt:
+  access_exp: ${ACCESS_EXP:1800}
+  refresh_exp: ${REFRESH_EXP:108000}
+  secret_key: ${SECRET_KEY:1234567890poiuytrewqasdfghjklqwertyuiuytrewsdfghjhgfdsdfgh234567890}
