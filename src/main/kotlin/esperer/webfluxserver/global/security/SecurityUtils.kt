@@ -9,7 +9,7 @@ import org.springframework.stereotype.Component
 import java.util.UUID
 
 @Component
-class SecurityUtil(
+class SecurityUtils(
     private val userRepository: UserRepository
 ) {
 

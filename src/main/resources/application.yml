@@ -11,3 +11,6 @@ jwt:
   access_exp: ${ACCESS_EXP:1800}
   refresh_exp: ${REFRESH_EXP:108000}
   secret_key: ${SECRET_KEY:1234567890poiuytrewqasdfghjklqwertyuiuytrewsdfghjhgfdsdfgh234567890}
+
+server:
+  port: 8081

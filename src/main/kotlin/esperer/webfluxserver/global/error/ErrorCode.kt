@@ -7,7 +7,10 @@ enum class ErrorCode(
 
     EXPIRED_TOKEN("Expired Token",401),
     INVALID_TOKEN("Invalid Token", 401),
+
     USER_NOT_FOUND("User Not Found", 404),
+    ALREADY_EXIST_USER("Already Exists User", 409),
+
     NOT_FOUND_REQUEST_HANDLER("Not Found Request Handler", 404),
     UNAUTHORIZED("UNAUTHORIZED",401),
     REFRESH_TOKEN_SAVE_FAILED("Failed to save RefreshToken", 500),
