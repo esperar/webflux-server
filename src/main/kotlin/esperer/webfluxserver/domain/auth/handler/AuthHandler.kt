@@ -1,6 +1,7 @@
 package esperer.webfluxserver.domain.auth.handler
 
 import esperer.webfluxserver.domain.auth.api.AuthApi
+import esperer.webfluxserver.domain.auth.dto.SignInRequest
 import esperer.webfluxserver.domain.auth.dto.SignUpRequest
 import kotlinx.coroutines.reactor.awaitSingle
 import org.springframework.stereotype.Component
@@ -15,11 +16,20 @@ class AuthHandler(
 ) {
 
     suspend fun signUp(serverRequest: ServerRequest): ServerResponse {
-        val requestBody = serverRequest.getUserSignInRequestBody()
+        val requestBody = serverRequest.getUserSignUpRequestBody()
         val tokenResponse = authApi.signUp(requestBody)
-        return ServerResponse.created(URI("/users")).bodyValueAndAwait(tokenResponse)
+        return ServerResponse.created(URI("/auth")).bodyValueAndAwait(tokenResponse)
+    }
+
+    private suspend fun ServerRequest.getUserSignUpRequestBody() =
+        this.bodyToMono(SignUpRequest::class.java).awaitSingle()
+
+    suspend fun signIn(serverRequest: ServerRequest): ServerResponse {
+        val requestBody = serverRequest.getUserSignInRequestBody()
+        val tokenResponse = authApi.signIn(requestBody)
+        return ServerResponse.created(URI("/auth")).bodyValueAndAwait(tokenResponse)
     }
 
     private suspend fun ServerRequest.getUserSignInRequestBody() =
-        this.bodyToMono(SignUpRequest::class.java).awaitSingle()
+        this.bodyToMono(SignInRequest::class.java).awaitSingle()
 }

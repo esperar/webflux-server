@@ -14,6 +14,7 @@ class AuthRouter {
         "users".nest {
             contentType(MediaType.APPLICATION_JSON)
             POST("/signup", authHandler::signUp)
+            POST("/signin", authHandler::signIn)
         }
     }
 }
