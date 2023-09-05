@@ -27,7 +27,7 @@ class AuthHandler(
     suspend fun signIn(serverRequest: ServerRequest): ServerResponse {
         val requestBody = serverRequest.getUserSignInRequestBody()
         val tokenResponse = authApi.signIn(requestBody)
-        return ServerResponse.created(URI("/auth")).bodyValueAndAwait(tokenResponse)
+        return ServerResponse.ok().bodyValueAndAwait(tokenResponse)
     }
 
     private suspend fun ServerRequest.getUserSignInRequestBody() =
@@ -35,6 +35,6 @@ class AuthHandler(
 
     suspend fun getUserInfo(): ServerResponse {
         val userInfoResponse = authApi.getUserInfo()
-        return ServerResponse.created(URI("/auth")).bodyValueAndAwait(userInfoResponse)
+        return ServerResponse.ok().bodyValueAndAwait(userInfoResponse)
     }
 }

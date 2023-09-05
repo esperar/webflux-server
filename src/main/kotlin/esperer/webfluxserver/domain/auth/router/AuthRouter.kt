@@ -15,6 +15,7 @@ class AuthRouter {
             contentType(MediaType.APPLICATION_JSON)
             POST("/signup", authHandler::signUp)
             POST("/signin", authHandler::signIn)
+            GET("/userinfo", authHandler::getUserInfo)
         }
     }
 }
