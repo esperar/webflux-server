@@ -33,7 +33,7 @@ class AuthHandler(
     private suspend fun ServerRequest.getUserSignInRequestBody() =
         this.bodyToMono(SignInRequest::class.java).awaitSingle()
 
-    suspend fun getUserInfo(): ServerResponse {
+    suspend fun getUserInfo(serverRequest: ServerRequest): ServerResponse {
         val userInfoResponse = authApi.getUserInfo()
         return ServerResponse.ok().bodyValueAndAwait(userInfoResponse)
     }

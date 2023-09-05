@@ -11,7 +11,7 @@ class AuthRouter {
 
     @Bean
     fun authBaseRouter(authHandler: AuthHandler) = coRouter {
-        "users".nest {
+        "/auth".nest {
             contentType(MediaType.APPLICATION_JSON)
             POST("/signup", authHandler::signUp)
             POST("/signin", authHandler::signIn)
