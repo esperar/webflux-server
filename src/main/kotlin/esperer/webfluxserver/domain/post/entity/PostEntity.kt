@@ -7,7 +7,7 @@ import java.util.*
 @Table("tbl_post")
 class PostEntity(
     @get:JvmName("getIdentifier")
-    override var id: UUID,
+    override var id: UUID = UUID(0, 0),
     val title: String,
     val content: String,
     val userId: UUID
