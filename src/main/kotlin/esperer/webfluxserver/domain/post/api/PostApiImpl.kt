@@ -4,8 +4,9 @@ import esperer.webfluxserver.domain.post.dto.CreatePostRequest
 import esperer.webfluxserver.domain.post.entity.PostEntity
 import esperer.webfluxserver.domain.post.repository.PostRepository
 import esperer.webfluxserver.global.security.SecurityUtils
-import java.util.UUID
+import org.springframework.stereotype.Service
 
+@Service
 class PostApiImpl(
     private val postRepository: PostRepository,
     private val securityUtils: SecurityUtils
