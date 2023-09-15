@@ -17,7 +17,10 @@ class SecurityConfig {
             .httpBasic { it.disable() }
             .formLogin { it.disable() }
             .csrf { it.disable() }
-            .authorizeExchange { it.anyExchange().permitAll() }
+            .authorizeExchange { it
+                .pathMatchers("/post").hasRole("ADMIN")
+                .anyExchange().permitAll()
+            }
             .build()
 
     @Bean
